@@ -35,12 +35,11 @@ set	pastetoggle=<F4>
 map	<F8>	dd
 imap	<F8>	<Esc>ddi
 
-" Control + Arrows for screen, at least I need it on my system/terminal
-" (Gentoo/mexvt)
-imap <ESC>5c <C-O>w
-imap <ESC>5d <C-O>b
-map <ESC>5c w
-map <ESC>5d b
+" Meta+Arrows for OS X Terminal
+imap <ESC>f <C-O>w
+imap <ESC>b <C-O>b
+map <ESC>f w
+map <ESC>b b
 
 " easily move through wrapped lines
 :map <Up> gk
