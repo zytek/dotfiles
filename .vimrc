@@ -69,4 +69,16 @@ set modeline
 set expandtab
 set tabstop=4
 set shiftwidth=4
-" set cc=80
+"set cc=80
+
+execute pathogen#infect()
+
+func! DeleteTrailingWS()
+  exe "normal mz"
+  %s/\s\+$//ge
+  exe "normal `z"
+endfunc
+noremap <leader>w :call DeleteTrailingWS()<CR>
+autocmd BufWrite *.py :call DeleteTrailingWS()
+autocmd BufWrite *.yml :call DeleteTrailingWS()
+autocmd BufWrite *.rb :call DeleteTrailingWS()
