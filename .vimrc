@@ -2,12 +2,16 @@
 " by Jakub Glazik zytek<at>nuxi.pl
 " http://zytek.nuxi.pl
 " November 2006
+
+execute pathogen#infect()
+
 filetype plugin on
 filetype indent on
 
 set spelllang=en,pl
 
-"set background=dark	" nicer colors	
+set background=dark
+colorscheme solarized
 
 set nocp		" nocompatibile yeah
 set ai			" autoindent
@@ -45,13 +49,14 @@ map <ESC>b b
 :map <Up> gk
 :map <Down> gj
 
+" easier indentation in visual mode
+vmap > >gv
+vmap < <gv
 
 " nice formatting of 'set list' - try pressing F3 ;-)
 set listchars=tab:>_,trail:^
 
-" I prefer this color for comments because I use background=light
-" on a dark background ;-)
-hi Comment ctermfg=darkcyan 
+"hi Comment ctermfg=darkcyan 
 
 set titlestring=%f
 
@@ -63,15 +68,13 @@ autocmd BufReadPost *
 
 au BufRead,BufNewFile *.md set filetype=markdown
 
-
 set modeline
 
 set expandtab
 set tabstop=4
 set shiftwidth=4
-"set cc=80
+set cc=80
 
-execute pathogen#infect()
 
 func! DeleteTrailingWS()
   exe "normal mz"
@@ -79,6 +82,6 @@ func! DeleteTrailingWS()
   exe "normal `z"
 endfunc
 noremap <leader>w :call DeleteTrailingWS()<CR>
-autocmd BufWrite *.py :call DeleteTrailingWS()
+"autocmd BufWrite *.py :call DeleteTrailingWS()
 autocmd BufWrite *.yml :call DeleteTrailingWS()
 autocmd BufWrite *.rb :call DeleteTrailingWS()
