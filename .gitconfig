@@ -5,5 +5,11 @@
     lg = log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit
     st = status -sb
     lc = diff --stat 4b825dc642cb6eb9a060e54bf8d69288fbee4904 #git hash-object -t tree /dev/null
+    ck = checkout
+    ci = commit 
+    c = commit
+
 [color]
 	ui = true
+[push]
+	default = tracking
