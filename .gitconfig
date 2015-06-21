@@ -12,4 +12,9 @@
 [color]
 	ui = true
 [push]
-	default = tracking
+    default = tracking
+
+[mergetool "vault-vimdiff"]
+    cmd = /Users/zytek/vault-vimdiff $BASE $LOCAL $REMOTE $MERGED
+[merge]
+    tool = vault-vimdiff
