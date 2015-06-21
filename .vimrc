@@ -85,3 +85,19 @@ noremap <leader>w :call DeleteTrailingWS()<CR>
 "autocmd BufWrite *.py :call DeleteTrailingWS()
 autocmd BufWrite *.yml :call DeleteTrailingWS()
 autocmd BufWrite *.rb :call DeleteTrailingWS()
+
+
+set completeopt-=preview " Close preview window on auto completion
+
+au FileType go nmap <Leader>s <Plug>(go-implements)
+au FileType go nmap <Leader>i <Plug>(go-info)
+au FileType go nmap <Leader>gd <Plug>(go-doc)
+au FileType go nmap <Leader>gv <Plug>(go-doc-vertical)
+au FileType go nmap <Leader>gb <Plug>(go-doc-browser)
+au FileType go nmap <leader>r <Plug>(go-run)
+au FileType go nmap <leader>b <Plug>(go-build)
+au FileType go nmap <leader>t <Plug>(go-test)
+au FileType go nmap <leader>c <Plug>(go-coverage)
+au FileType go nmap <leader>v <Plug>(go-vet)
+au FileType go nmap gd <Plug>(go-def-tab)
+au FileType go nmap <Leader>e <Plug>(go-rename)
