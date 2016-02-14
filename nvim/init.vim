@@ -1,10 +1,18 @@
 call plug#begin('~/.config/nvim/plugged')
 	Plug 'scrooloose/nerdtree'
 	Plug 'fatih/vim-go'
+	Plug 'airblade/vim-gitgutter'
+	Plug 'tpope/vim-fugitive'
 call plug#end()
 
 colorscheme solarized
 set background=dark
+
+set listchars=tab:——,nbsp:⋅,eol:¬,trail:⋅
+set list
+" Fix for listchars background
+highlight SpecialKey cterm=none ctermfg=0 guifg=#073642 ctermbg=8 guibg=#002b36
+highlight NonText cterm=none ctermfg=0 guifg=#073642
 
 set relativenumber
 set number
@@ -38,3 +46,12 @@ noremap <leader>w :call DeleteTrailingWS()<CR>
 autocmd BufWrite *.py :call DeleteTrailingWS()
 autocmd BufWrite *.yml :call DeleteTrailingWS()
 autocmd BufWrite *.rb :call DeleteTrailingWS()
+
+
+" Tab completion settings
+set wildmode=list:longest     " Wildcard matches show a list, matching the longest first
+set wildignore+=.git,.hg,.svn " Ignore version control repos
+set wildignore+=*.6           " Ignore Go compiled files
+set wildignore+=*.pyc         " Ignore Python compiled files
+set wildignore+=*.rbc         " Ignore Rubinius compiled files
+set wildignore+=*.swp         " Ignore vim backups
