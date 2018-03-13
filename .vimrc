@@ -3,7 +3,7 @@
 " http://zytek.nuxi.pl
 " November 2006
 
-execute pathogen#infect()
+"execute pathogen#infect()
 
 filetype plugin on
 filetype indent on
@@ -11,11 +11,11 @@ filetype indent on
 set spelllang=en,pl
 
 set background=dark
-colorscheme solarized
+"colorscheme solarized
 
 set nocp		" nocompatibile yeah
 set ai			" autoindent
-set si			" smartindent 
+"set si			" smartindent 
 "set ic			" ignore case when searching
 set incsearch		" go to pattern when you type it in searches
 set hlsearch
@@ -73,7 +73,7 @@ set modeline
 set expandtab
 set tabstop=4
 set shiftwidth=4
-set cc=80
+"set cc=80
 
 
 func! DeleteTrailingWS()
