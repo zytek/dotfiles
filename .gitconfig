@@ -1,20 +1,30 @@
 [user]
     name = Jakub Paweł Głazik
     email = zytek@nuxi.pl
+    signingkey = 76FD6751
 [alias]
     lg = log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit
     st = status -sb
     loc = diff --stat 4b825dc642cb6eb9a060e54bf8d69288fbee4904 #git hash-object -t tree /dev/null
-    ck = checkout
-    ci = commit 
-    c = commit
+    c = checkout
+    co = checkout
+    ci = commit -S
+    d = diff
+    dc = diff --cached
 
 [color]
-	ui = true
+    ui = true
 [push]
     default = tracking
-
-[mergetool "vault-vimdiff"]
-    cmd = /Users/zytek/vault-vimdiff $BASE $LOCAL $REMOTE $MERGED
+[commit]
+	gpgsign = true
+[pull]
+  rebase = false
 [merge]
-    tool = vault-vimdiff
+    tool = meld
+[mergetool "meld"]
+    # Choose one of these 2 lines (not both!) explained below.
+    cmd = meld "$LOCAL" "$MERGED" "$REMOTE" --output "$MERGED"
+    #cmd = meld "$LOCAL" "$BASE" "$REMOTE" --output "$MERGED"
+[init]
+  defaultBranch = master

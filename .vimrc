@@ -14,8 +14,8 @@ set background=dark
 "colorscheme solarized
 
 set nocp		" nocompatibile yeah
-set ai			" autoindent
-"set si			" smartindent 
+"set ai			" autoindent
+"set si			" smartindent
 "set ic			" ignore case when searching
 set incsearch		" go to pattern when you type it in searches
 set hlsearch
@@ -53,10 +53,14 @@ map <ESC>b b
 vmap > >gv
 vmap < <gv
 
+cnoreabbrev W w
+cnoreabbrev Wa wa
+noreabbrev Wqa wqa
+
 " nice formatting of 'set list' - try pressing F3 ;-)
 set listchars=tab:>_,trail:^
 
-"hi Comment ctermfg=darkcyan 
+"hi Comment ctermfg=darkcyan
 
 set titlestring=%f
 
@@ -71,8 +75,8 @@ au BufRead,BufNewFile *.md set filetype=markdown
 set modeline
 
 set expandtab
-set tabstop=4
-set shiftwidth=4
+set tabstop=2
+set shiftwidth=2
 "set cc=80
 
 
@@ -81,6 +85,8 @@ func! DeleteTrailingWS()
   %s/\s\+$//ge
   exe "normal `z"
 endfunc
+
+au BufWritePre * :%s/\s\+$//e
 noremap <leader>w :call DeleteTrailingWS()<CR>
 "autocmd BufWrite *.py :call DeleteTrailingWS()
 autocmd BufWrite *.yml :call DeleteTrailingWS()
